@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="35dp" >
+
+        <TextView
+            android:id="@+id/text_id"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:paddingBottom="10dip"
+            android:paddingTop="10dip"
+            android:singleLine="true"
+            android:text="称呼"
+            android:textColor="@color/text_black"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="fill_parent"
+            android:background="@color/line_color" />
+
+        <TextView
+            android:id="@+id/text_goods_name"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:paddingBottom="10dip"
+            android:paddingTop="10dip"
+            android:singleLine="true"
+            android:text="联系电话"
+            android:textColor="@color/text_black"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="fill_parent"
+            android:background="@color/line_color" />
+
+        <TextView
+            android:id="@+id/text_codeBar"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:paddingBottom="10dip"
+            android:paddingTop="10dip"
+            android:singleLine="true"
+            android:text="购票数量"
+            android:textColor="@color/text_black"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="fill_parent"
+            android:background="@color/line_color" />
+
+        <TextView
+            android:id="@+id/text_num"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.5"
+            android:gravity="center"
+            android:paddingBottom="10dip"
+            android:paddingTop="10dip"
+            android:singleLine="true"
+            android:text="是否需要发票"
+            android:textColor="@color/text_black"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="fill_parent"
+            android:background="@color/line_color" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5" >
+
+            <TextView
+                android:id="@+id/text_curPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="10dip"
+                android:paddingTop="10dip"
+                android:singleLine="true"
+                android:text="是否检票"
+                android:textColor="@color/text_black"
+                android:textSize="12sp"
+                 />
+            
+            
+            <ImageView 
+                android:id="@+id/img"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/icon_yes_1"
+                android:layout_centerInParent="true"
+                android:visibility="gone"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,87 @@
+<resources>
+    <string name="app_name">啄金鸟</string>
+
+    <!-- error -->
+    <string name="error_netfail">网络异常，请检查网络连接</string>
+    <string name="error_datafail">数据解析失败</string>
+    <string name="error_requestfail">请求失败，请刷新重试</string>
+    <!-- error end -->
+
+    <string name="ok">完成</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确认</string>
+
+    <!-- login & register start -->
+    <string name="username_hint">请输入手机号</string>
+    <string name="password_hint">请输入密码</string>
+    <string name="password">密码</string>
+    <string name="login">登录</string>
+    <string name="register">注册</string>
+    <string name="third_party_login">第三方登录</string>
+    <string name="forget_password">忘记密码?</string>
+    <string name="fillin_phone_number">1.填写手机号码</string>
+    <string name="fillin_password">2.设置密码</string>
+    <string name="sms_verif">3.短信验证</string>
+    <string name="phone_number">手机号</string>
+    <string name="agreement">同意《公共乘车服务协议》</string>
+    <string name="pw_input_rules">6&#8211;22位字母或数字</string>
+    <string name="vc_input_rules">请输入验证码</string>
+    <string name="next_step">下一步</string>
+    <string name="verification_code">验证码</string>
+    <string name="send_verifcode">发送</string>
+    <string name="register_success">注册成功</string>
+    <!-- login & register end -->
+
+
+    <!-- select city start -->
+    <string name="start">出发地点</string>
+    <string name="end">到达地点</string>
+    <string name="search_hint_select">中文/拼音/首字母</string>
+    <string name="select_tips">客运站选择(可选)</string>
+    <string name="history">历史</string>
+    <string name="hot">热门</string>
+    <!-- select city end -->
+
+    <string name="name">姓名</string>
+    <string name="name_hint">请输入真实姓名</string>
+    <string name="credential_hint">请输入真实证件号码</string>
+    <string name="select_passenger">选择联系人</string>
+    <string name="add_passenger">添加联系人</string>
+    <string name="edit_passenger">修改联系人</string>
+    <string name="passenger_type">乘客类型</string>
+    <string name="credential_type">证件类型</string>
+    <string name="credential_num">证件号码</string>
+    <string name="insurance">保险</string>
+    <string name="insurance_desc">保险说明</string>
+    <string name="querenzhifu">确认支付</string>
+
+    <!-- mine message -->
+    <string name="message_title">信息中心</string>
+    <string name="message_service">客服消息</string>
+    <string name="message_notice">晚点通知</string>
+    <string name="message_intercity">晚点通知</string>
+    <string name="numbersign">账号登录</string>
+    <string name="inputphonenumber">请输入手机号</string>
+    <string name="inputsignnumber">请输入登录密码</string>
+    <string name="sign">登录</string>
+    <string name="numberregister">账号注册</string>
+    <string name="numberforget">忘记密码</string>
+    <string name="fastsign">第三方账号快速登录</string>
+
+    <!-- app中的命名 -->
+    <string name="title_name">攻略详情</string>
+    <string name="today_earnings">Today earnings(gold)</string>
+    <string name="account_balance">account balance(gold)</string>
+    <string name="total_revenue">Total revenue(gold)</string>
+    <!-- 提现 -->
+    <string name="withdrawal_center">Withdraw</string>
+    <!-- 收徒 -->
+    <string name="accept_apprentice">accept apprentice</string>
+    <!-- 收入排名 -->
+    <string name="income_ranked">Income ranked</string>
+    <!-- 任务明细 -->
+    <string name="task_detail">Task detail</string>
+    <!-- 新用户手册 -->
+    <string name="new_user">The new user manual</string>
+
+</resources>

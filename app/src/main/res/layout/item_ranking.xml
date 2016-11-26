@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/rlt"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/white" >
+
+        <ImageView
+            android:id="@+id/one_img"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/default_icon" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/icon_crown" />
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/icon_member" />
+
+        <TextView
+            android:id="@+id/one_iphone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/one_img"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:text="11111111111"
+            android:textColor="@color/white"
+            android:textSize="14dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/icon_no1" />
+
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="20dp"
+            android:layout_height="25dp"
+            android:layout_alignLeft="@id/one_img"
+            android:layout_marginTop="120dp"
+            android:background="@drawable/icon_yellow_gold" />
+
+        <TextView
+            android:id="@+id/one_gold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="125dp"
+            android:layout_toRightOf="@id/iv"
+            android:text="26300"
+            android:textColor="#E7C420"
+            android:textSize="14dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlt1"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_below="@id/rlt"
+        android:background="@color/white" >
+
+        <ImageView
+            android:id="@+id/no_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp" />
+
+        <ImageView
+            android:id="@+id/two_img"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/no_number"
+            android:background="@drawable/default_icon" />
+
+        <TextView
+            android:id="@+id/two_iphone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/two_img"
+            android:text="234235"
+            android:textColor="#353535"
+            android:textSize="14dp" />
+
+        <ImageView
+            android:id="@+id/iv1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_below="@id/two_iphone"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/two_img"
+            android:background="@drawable/icon_yellow_gold" />
+
+        <TextView
+            android:id="@+id/two_gold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/two_iphone"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/iv1"
+            android:text="26300"
+            android:textColor="#E7C420"
+            android:textSize="14dp" />
+    </RelativeLayout>
+
+</RelativeLayout>

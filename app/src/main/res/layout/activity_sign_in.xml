@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F2F2" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/rlt"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="#FF4200" >
+
+                <RelativeLayout
+                    android:id="@+id/get_back"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true" >
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="30dp"
+                        android:src="@drawable/back" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="23dp"
+                    android:text="签到"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlt1"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_below="@id/rlt"
+                android:background="@color/white" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
+                    android:text="连续签到7天后,每天可获得2金币.连续签到14天后,每天可获"
+                    android:textColor="#828282"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="50dp"
+                    android:text="得3金币,连续签到21天后,每天可获取4金币."
+                    android:textColor="#828282"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rlt1"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="horizontal" >
+
+                <com.qixiu.common.zhoujinniao.lib.circleview.MyGridView
+                    android:id="@+id/gridview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fastScrollEnabled="true"
+                    android:gravity="center"
+                    android:numColumns="7" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:text="明天继续努力哦！"
+                    android:textColor="#353535" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="35dp"
+                    android:text="(恭喜你,完成了所有的签到~)"
+                    android:textColor="#353535" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <RelativeLayout
+        android:id="@+id/rlt"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#FF4200" >
+
+        <ImageView
+            android:id="@+id/get_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="23dp"
+            android:text="提现"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rlt"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/iv1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/icon_submit_p" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:text="Amazon Gift Card $1"
+                android:textColor="#313131" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="This card will be sent your email whithin 1 working day"
+                android:textSize="10dp" />
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/ed_email"
+                android:hint="input your E-mail"
+                android:paddingLeft="10dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:cursorVisible="true"
+                android:textColor="@color/black"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Please confirm country of your account"
+                android:textSize="10dp" />
+
+            
+
+            <TextView
+                android:id="@+id/country"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/ed_email"
+                android:text="               Amenrion"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:textSize="14dp" />
+            
+            <ImageView
+                android:id="@+id/countryimg"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="43dp"
+                android:layout_marginLeft="10dp"
+                android:layout_alignLeft="@id/country"
+                android:src="@drawable/america" />
+            
+
+            <ImageView
+                android:id="@+id/select_country"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@id/country"
+                android:layout_below="@id/tv"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="13dp"
+                android:src="@drawable/icon_tianxie" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Order means you are agree with our Tos"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ll"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/bg_login"
+                android:gravity="center"
+                android:paddingBottom="8dp"
+                android:paddingTop="8dp"
+                android:text="Order"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <WebView
+        android:id="@+id/web"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="gone" />
+
+</RelativeLayout>

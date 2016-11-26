@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.qixiu.common.zhoujinniao">
+
+    <!-- Tapjoy Permissions -->
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <!-- If your android:minSdkVersion is API 15 or earlier, you will also need to add the -->
+    <!-- GET_ACCOUNTS permission to use push. API level 16+ does not have this requirement. -->
+    <!-- <uses-permission android:name="android.permission.GET_ACCOUNTS"/> -->
+
+    <permission
+        android:name="com.tapjoy.easyapp.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.qixiu.common.zhuojinniao.permission.C2D_MESSAGE" />
+
+    <!-- 通过GPS得到精确位置 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 通过网络得到粗略位置 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 访问WiFi状态. 需要WiFi信息用于网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 修改WiFi状态. 发起WiFi扫描, 需要WiFi信息用于网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 访问网络状态, 检测网络的可用性. 需要网络运营商相关信息用于网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 访问网络的变化, 需要某些信息用于网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <!-- 访问手机当前状态, 需要某些信息用于网络定位 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- 网络权限 -->
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- 微信登陆权限 -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!-- 百度地图 -->
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+
+    <!-- 打电话 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <!-- share sdk -->
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <uses-permission android:name="android.permission.READ_LOGS" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="false"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+
+    <application
+        android:name="com.qixiu.common.zhoujinniao.main.App"
+        android:hardwareAccelerated="false"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+        <activity android:name="com.qixiu.common.zhoujinniao.activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 明细页面 -->
+        <activity android:name="com.qixiu.common.zhoujinniao.activity.DetailActivity" >
+        </activity>
+
+        <!-- 排名页面 -->
+        <activity android:name="com.qixiu.common.zhoujinniao.activity.RankingActivity" >
+        </activity>
+        <!-- 签到页面 -->
+        <activity android:name="com.qixiu.common.zhoujinniao.activity.SignInActivity" >
+        </activity>
+        <!-- 下载任务界面 -->
+        <!--activity android:name="com.qixiu.common.activity.DownloadActivity" /-->
+
+
+        <!-- 收徒 -->
+        <activity android:name="com.qixiu.common.zhoujinniao.activity.InvitationActivity" >
+        </activity>
+
+        <!-- Tapjoy -->
+        <activity android:name="com.qixiu.common.zhoujinniao.activity.DownloadActivity" >
+        </activity>
+        <!-- 帮助界面 -->
+        <activity android:name="com.qixiu.common.zhoujinniao.activity.HelpActivity" >
+        </activity>
+
+        <!-- 提现界面1 -->
+        <activity android:name="com.qixiu.common.zhoujinniao.activity.WithdrawOneActivity" >
+        </activity>
+        <!-- 提现界面2 -->
+        <activity android:name="com.qixiu.common.zhoujinniao.activity.WithdrawTwoActivity" >
+        </activity>
+        <!-- 提现3 -->
+        <activity android:name="com.qixiu.common.zhoujinniao.activity.WithdrawThreeActivity" >
+        </activity>
+        <!-- THIRD -->
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="oKmKv8COnyVksiAFuUCWZyMzxIsgVUQN" />
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+        </service>
+
+        <!-- share sdk 申请的value值要修改 -->
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+            <meta-data
+                android:name="AuthorizeAdapter"
+                android:value="cn.sharesdk.demo.MyAdapter" />
+
+            <intent-filter>
+                <data android:scheme="tencent1105101202" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <!-- 调用新浪原生SDK，需要注册的回调activity -->
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 微信分享回调 -->
+        <activity
+            android:name="com.qixiu.common.zhoujinniao.wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- end share sdk -->
+
+
+        <!-- Tapjoy -->
+
+        <activity
+            android:name="com.tapjoy.TJAdUnitActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.tapjoy.mraid.view.ActionHandler"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name="com.tapjoy.mraid.view.Browser"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name="com.tapjoy.TJContentActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <receiver
+            android:name="com.tapjoy.InstallReferrerReceiver"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.tapjoy.GCMReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.gcm.intent.RETRY" />
+
+                <category android:name="com.tapjoy.easyapp" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.tapjoy.TapjoyReceiver" />
+
+        <meta-data
+            android:name="com.tapjoy.notification.icon.large"
+            android:resource="@drawable/ic_large" />
+        <meta-data
+            android:name="com.tapjoy.notification.icon"
+            android:resource="@drawable/ic_notify" />
+        <meta-data
+            android:name="com.tapjoy.notification.icon.compat"
+            android:resource="@drawable/icon" />
+
+    </application>
+
+</manifest>

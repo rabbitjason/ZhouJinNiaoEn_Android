@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <RelativeLayout
+        android:id="@+id/rlt"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#FF4200" >
+
+        <ImageView
+            android:id="@+id/get_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="23dp"
+            android:text="提现"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rlt"
+        android:layout_marginTop="20dp" >
+
+        <TextView
+            android:id="@+id/tt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Choose Country"
+            android:textColor="#373737"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/Cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bg_cancel"
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:text="Cancel"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/Save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/Cancel"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/bg_login"
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:text="Save"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:layout_above="@id/Save"
+            android:layout_below="@id/tt"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="30dp"
+            android:divider="#F3F3F3"
+            android:dividerHeight="1dp" />
+    </RelativeLayout>
+
+</RelativeLayout>

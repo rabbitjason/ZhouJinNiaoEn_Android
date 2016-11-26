@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="line_color">#cfcfcf</color>
+    <color name="color_refresh">#c3c3c3</color>
+    <color name="color_green">#4ed499</color>
+    <color name="color_text_second">#c3c3c3</color>
+    <color name="bg_color">#FFEEEEEE</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="green">#FF4ADE99</color>
+    <color name="text_black">#FF67625F</color>
+    <color name="text_color">#FF333333</color>
+    <color name="transparent">#00000000</color>
+    <color name="translucent">#5F000000</color>
+    <color name="color_default">#d1d1d1</color>
+    <color name="color_hint">#adadad</color>
+    <color name="translucent_background">#66000000</color>
+    <color name="title_coler">#6F3381</color>
+    <color name="text_color2">#6F333333</color>
+    <color name="text_red">#6Fc92f53</color>
+    <color name="actionbar_color">#4889DB</color>
+    <color name="window_background">#FFE7ECEF</color>
+    <color name="text_color_indicator_selected">#4889db</color>
+    <color name="text_color_indicator">#a8a8a8</color>
+    <color name="text_noclick_color">#3a3a3a</color>
+    <color name="edit_text_color_hint">#D9D9D9</color>
+    <color name="text_has_click_color">#2D7CD2</color>
+    <color name="text_checkbox_color">#4889DB</color>
+    <color name="red1">#FFFF5B45</color>
+    <color name="red2">#FFD25B45</color>
+    <color name="select_windows_background">#F2F2F2</color>
+    <color name="black">#FF000000</color>
+    <color name="color_text_default">#818181</color>
+    <color name="color_text_select">#4F8ED9</color>
+    <color name="color_title">#4B8BD8</color>
+    <color name="text_blue">#4B8BD8</color>
+    <color name="text_gray">#F2F3F5</color>
+    <color name="gray">#aeaeae</color>
+    <color name="orange">#ffcc00</color>
+
+    <item name="subscribe_item_text_color_normal" type="color">@color/color_text_default</item>
+
+    <color name="translucent_white">#C8FFFFFF</color>
+    <color name="subscribe_item_text_color_pressed">#ffb9b9b9</color>
+    <color name="subscribe_item_focused_stroke">#ffd9d9d9</color>
+    <color name="subscribe_item_drag_stroke">#ffd2d2d2</color>
+    <color name="subscribe_item_drag_bg">#fff5f5f5</color>
+    <color name="subscribe_item_selected_bg">#ffffffff</color>
+    <color name="subscribe_item_selected_stroke">#ffcc3131</color>
+    <color name="subscribe_item_disabled_bg">#ffefefef</color>
+    <color name="subscribe_item_disabled_stroke">#ffd9d9d9</color>
+    <color name="subscribe_item_pressed_bg">#fff9f9f9</color>
+    <color name="subscribe_item_pressed_stroke">#ffcdcdcd</color>
+    <color name="subscribe_item_normal_bg">#ffffffff</color>
+    <color name="subscribe_item_normal_stroke">#ffcdcdcd</color>
+    <color name="color_title_layout">#4B8BD8</color>
+    <color name="color_bt_disable">#ABACAD</color>
+    <color name="text_second">#868686</color>
+
+    <!-- 侧滑菜单中的个人中心的属性 -->
+    <color name="text_name_color">#333333</color>
+    <color name="text_sig_color">#666666</color>
+    <color name="background_view_color">#dddddd</color>
+    <color name="color_6f3381">#6F3381</color>
+    <color name="color_aaaaaa">#AAAAAA</color>
+    <color name="color_fefefe">#FEFEFE</color>
+    <color name="color_cccccc">#999999</color>
+    <color name="color_666666">#666666</color>
+    <color name="black_deep">#666666</color>
+
+    <color name="buttonColor">#ffba01</color>
+    <color name="disabledButtonColor">#f9dc8d</color>
+    <color name="pressedButtonColor">#dca30a</color>
+    <color name="buttonTextColor">#7e5c09</color>
+    <color name="buttonBorderColor">#cf9b1f</color>
+    <color name="backgroundColor">#f1f0ec</color>
+
+    <color name="tabColor">#ffba01</color>
+    <color name="disabledTabColor">#f9dc8d</color>
+    <color name="pressedTabColor">#dca30a</color>
+    <color name="tabTextColor">#7e5c09</color>
+    <color name="tabBackgroundColor">#000000</color>
+    <color name="tabBorderColor">#000000</color>
+
+</resources>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F2F2" >
+
+    <RelativeLayout
+        android:id="@+id/rlt"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#FF4200" >
+
+        <RelativeLayout
+            android:id="@+id/get_back"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true" >
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/back" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="23dp"
+            android:text="明细"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rlt"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <!-- <ListView -->
+        <!-- android:id="@+id/listview" -->
+        <!-- android:layout_width="match_parent" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:layout_marginBottom="20dp" -->
+        <!-- android:divider="#F3F3F3" -->
+        <!-- android:dividerHeight="1dp" /> -->
+
+        <ListView
+            android:id="@+id/pull_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="10dp"
+            android:cacheColorHint="#00000000"
+            android:divider="@color/line_color"
+            android:dividerHeight="1px"
+            android:fadingEdge="none"
+            android:fastScrollEnabled="false"
+            android:footerDividersEnabled="false"
+            android:headerDividersEnabled="false"
+            android:scrollbars="none"
+            android:smoothScrollbar="true" />
+    </RelativeLayout>
+
+    <RelativeLayout style="@style/loading_layout_style" />
+
+</RelativeLayout>

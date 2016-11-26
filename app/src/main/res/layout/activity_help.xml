@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F2F2" >
+
+    <RelativeLayout
+        android:id="@+id/rlt"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#FF4200" >
+
+        
+        <RelativeLayout
+            android:id="@+id/get_back"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true" >
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/back" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="23dp"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlt1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/rlt"
+        android:background="@color/white"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/weixin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="微信服务账号:chenyuan1234"
+            android:textColor="#333333" />
+
+        <TextView
+            android:id="@+id/QQ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/weixin"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="QQ服务账号:67888888"
+            android:textColor="#333333" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlt2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/rlt1"
+        android:layout_marginTop="15dp"
+        android:background="@color/white"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/weixin1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="常见问题"
+            android:textColor="#333333" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#E6E6E6" />
+    </RelativeLayout>
+
+    <WebView
+        android:id="@+id/web"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/rlt2" />
+
+    <RelativeLayout style="@style/loading_layout_style" >
+    </RelativeLayout>
+
+</RelativeLayout>

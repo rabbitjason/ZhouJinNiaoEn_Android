@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F2F2" >
+
+    <RelativeLayout
+        android:id="@+id/rlt"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#FF4200" >
+
+        <ImageView
+            android:id="@+id/get_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="23dp"
+            android:text="提现"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rlt"
+        android:background="@color/white" >
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/rlt1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:visibility="visible" >
+
+                <ImageView
+                    android:id="@+id/iv1"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/icon_a" />
+
+                <RelativeLayout
+                    android:id="@+id/add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/iv1" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/icon_cash_box" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/iv1"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="145dp"
+                    android:text="Amazon Gift Card $1"
+                    android:textColor="#313131" />
+
+                <TextView
+                    android:id="@+id/withdraw"
+                    android:layout_width="90dp"
+                    android:layout_height="30dp"
+                    android:layout_alignRight="@id/iv1"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="130dp"
+                    android:background="@drawable/bg_withdraw"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="15dp"
+                    android:text="750,00"
+                    android:textColor="@color/white" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignRight="@id/withdraw"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="136dp"
+                    android:src="@drawable/icon_yellow_gold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlt2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible" >
+
+                <ImageView
+                    android:id="@+id/iv2"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="20dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/icon_p" />
+
+                <RelativeLayout
+                    android:id="@+id/add1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/iv2"
+                    android:layout_marginTop="20dp" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/icon_cash_box" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/withdraw1"
+                    android:layout_width="90dp"
+                    android:layout_height="30dp"
+                    android:layout_alignRight="@id/iv2"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="170dp"
+                    android:background="@drawable/bg_withdraw"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="15dp"
+                    android:text="2500,00"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/iv2"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="175dp"
+                    android:layout_toLeftOf="@id/withdraw1"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:singleLine="true"
+                    android:text="Paypal Cash $5（USD） wi…"
+                    android:textColor="#202020"
+                    android:textSize="14dp" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_alignRight="@id/withdraw1"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="176dp"
+                    android:src="@drawable/icon_yellow_gold" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <WebView
+            android:id="@+id/web"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:visibility="gone" />
+    </FrameLayout>
+
+</RelativeLayout>

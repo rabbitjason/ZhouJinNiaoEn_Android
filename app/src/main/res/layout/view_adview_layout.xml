@@ -1,0 +1,19 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <fragment
+        android:id="@+id/fragment_cycle_viewpager_content"
+        android:name="com.qixiu.common.zhoujinniao.lib.circleview.CycleViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ad_layout_height" />
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/fragment_cycle_viewpager_content"
+        android:background="@color/line_color" />
+
+</RelativeLayout>

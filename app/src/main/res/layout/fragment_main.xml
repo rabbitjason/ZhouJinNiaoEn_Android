@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F3F3" >
+
+    <RelativeLayout
+        android:id="@+id/title_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/title_height"
+        android:background="#EE5A13"
+        android:visibility="gone" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="@string/title_name"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title_layout" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/ll_layout"
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:background="#EE5A13"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:text="@string/today_earnings"
+                        android:textColor="#E7E7E7"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/earnings"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="17dp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_horizontal"
+                        android:text="¥ 345.68"
+                        android:textColor="@color/white"
+                        android:textSize="40sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="67dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:background="#F06326"
+                    android:orientation="horizontal" >
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:gravity="center"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/zhye"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/account_balance"
+                            android:textColor="#E7E7E7" />
+
+                        <TextView
+                            android:id="@+id/balance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/zhye"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:text="3.66"
+                            android:textColor="#E7E7E7" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:gravity="center"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:id="@+id/zgsy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/total_revenue"
+                            android:textColor="#E7E7E7" />
+
+                        <TextView
+                            android:id="@+id/total_earnings"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/zgsy"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="5dp"
+                            android:text="105.33"
+                            android:textColor="#E7E7E7" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="#F3F3F3" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <!-- android:background="#EDEDED" -->
+
+                <com.qixiu.common.zhoujinniao.lib.circleview.MyGridView
+                    android:id="@+id/gridview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:fastScrollEnabled="true"
+                    android:gravity="center"
+                    android:numColumns="4"
+                    android:verticalSpacing="1dp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="#F3F3F3" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <com.qixiu.common.zhoujinniao.lib.circleview.MyListView
+                    android:id="@+id/listview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:divider="#F3F3F3"
+                    android:dividerHeight="1dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- 备用 -->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:text=""
+        android:textSize="14sp" />
+
+    <RelativeLayout
+        android:id="@+id/loading"
+        style="@style/loading_layout_style" />
+
+</RelativeLayout>

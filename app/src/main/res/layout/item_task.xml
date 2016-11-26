@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp" >
+
+        <ImageView
+            android:id="@+id/task_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:src="@drawable/icon_click"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/task_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@id/task_img"
+            android:textColor="#666666"
+            android:text="当飞机飞"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/task_text_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/task_text"
+            android:layout_toRightOf="@id/task_img"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="15dp"
+            android:lines="1"
+            android:singleLine="true"
+            android:text="地方叫饿哦发生的了咖啡"
+            android:ellipsize="end"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/task_back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/min_index"
+            android:textSize="16dp"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line_color" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="当前任务"
+                android:textColor="@color/red1"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="发车时间：2016-04-16 17:15"
+                android:textColor="@color/text_black"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:background="#ffffff" >
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/line_color" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/message_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:padding="10dp" >
+
+            <LinearLayout
+                android:id="@+id/l1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/icon_yes" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="武汉大学"
+                    android:textColor="@color/text_black"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/l1"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/icon_no" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="咸宁实验中学"
+                    android:textColor="@color/text_black"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:background="#ffffff" >
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/line_color" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:background="#ffffff" >
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/line_color" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:padding="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="车站信息"
+                android:textColor="@color/text_has_click_color"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="武汉市武昌区珞喻路16号"
+                android:textColor="@color/text_black"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_location" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/line_color" />
+    </LinearLayout>
+
+</RelativeLayout>
