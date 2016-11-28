@@ -9,7 +9,7 @@
         android:background="@color/white" >
 
         <ImageView
-            android:id="@+id/img1"
+            android:id="@+id/imgLogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
-            android:layout_toRightOf="@id/img1"
+            android:layout_toRightOf="@id/imgLogo"
             android:textColor="#666666"
             android:text="Show Offerwall"
             android:textSize="16sp" />

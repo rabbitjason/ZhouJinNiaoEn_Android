@@ -33,6 +33,8 @@ import com.tapjoy.TapjoyConnectFlag;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
 
+import net.adxmi.android.AdManager;
+
 public class App extends Application {
 	private static WeakReference<App> instance;
 	public static Activity mCurrentActivity;
@@ -59,6 +61,10 @@ public class App extends Application {
 
 		wxApi = WXAPIFactory.createWXAPI(this, Config.WX_APP_ID, false);
 		wxApi.registerApp(Config.WX_APP_ID);
+
+		//Set Admxi config
+        //AdManager.getInstance(getApplicationContext()).setEnableDebugLog(false);
+		AdManager.getInstance(getApplicationContext()).init(Config.ADXMI_APP_ID, Config.ADXMI_APP_SECRET);
 
 //		File cacheDir = StorageUtils.getOwnCacheDirectory(
 //				getApplicationContext(), "imageloader/Cache");

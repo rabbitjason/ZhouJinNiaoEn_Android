@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.qixiu.common.zhoujinniao.data.bean.DownloadBean;
 import com.qixiu.common.zhoujinniao.manager.PreferenceManager;
 import com.qixiu.common.zhoujinniao.R;
 
@@ -38,7 +39,7 @@ public class DownloadAdapter extends MyBaseAdapter {
 	protected void findViews() {
 		// TODO Auto-generated method stub
 
-		img = (ImageView) findViewById(R.id.img1);
+		img = (ImageView) findViewById(R.id.imgLogo);
 		text = (TextView) findViewById(R.id.text);
 		text_task = (TextView) findViewById(R.id.text_task);
 
@@ -47,6 +48,11 @@ public class DownloadAdapter extends MyBaseAdapter {
 	@Override
 	protected void dataBindView() {
 		// TODO Auto-generated method stub
+
+		DownloadBean item = (DownloadBean) getItem(position);
+		img.setImageResource(item.image_id);
+		text.setText(item.wall_name);
+		text_task.setText(item.description);
 
 //		if (position == 0) {
 //

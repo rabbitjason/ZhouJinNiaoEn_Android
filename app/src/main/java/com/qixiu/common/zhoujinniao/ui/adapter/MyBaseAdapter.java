@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-/**
+/**s
  * 
  * 作者:蔡名雨<br>
  * 功能:继承于BaseAdapter，简化<br>

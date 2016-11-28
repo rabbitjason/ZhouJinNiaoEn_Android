@@ -20,4 +20,7 @@ public class Config {
 
     public static final String WX_APP_ID = "wx3fc52e846ecac99d";
     public static final String WX_APP_SEC = "8b5845b755c47d10cf23ee7caf70a0b7";
+
+    public static final String ADXMI_APP_ID = "a1d56571aeb19afa";
+    public static final String ADXMI_APP_SECRET = "3a822cfa59281255";
 }

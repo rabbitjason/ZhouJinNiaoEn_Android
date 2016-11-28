@@ -34,6 +34,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import net.adxmi.android.os.OffersManager;
+
 @SuppressLint("NewApi")
 public class DownloadActivity extends BaseActivity implements
 		View.OnClickListener, TJGetCurrencyBalanceListener,
@@ -74,6 +76,8 @@ public class DownloadActivity extends BaseActivity implements
 		Initdata();
 		Binddata();
 		connectToTapjoy();
+
+
 	}
 
 	private void Binddata() {
@@ -85,7 +89,8 @@ public class DownloadActivity extends BaseActivity implements
 		// list.add(new DownloadBean());
 		// list.add(new DownloadBean());
 		// list.add(new DownloadBean());
-		list.add(new DownloadBean());
+		list.add(new DownloadBean("Adxmi", "", R.drawable.icon_img1));
+        list.add(new DownloadBean("Tapjoy", "", R.drawable.icon_img1));
 
 		adapter = new DownloadAdapter();
 		adapter.setData(list);
@@ -222,6 +227,7 @@ public class DownloadActivity extends BaseActivity implements
 	protected void onStart() {
 		super.onStart();
 		Tapjoy.onActivityStart(this);
+        OffersManager.getInstance(this).onAppLaunch();
 	}
 
 	/**
@@ -231,33 +237,42 @@ public class DownloadActivity extends BaseActivity implements
 	protected void onStop() {
 		super.onStop();
 		Tapjoy.onActivityStop(this);
+        OffersManager.getInstance(this).onAppExit();
 	}
 
-	/**
+    @Override
+    protected void onDestroy() {
+
+
+
+        super.onDestroy();
+
+    }
+
+    /**
 	 * Handles button clicks
 	 */
 	public void onClick(View v) {
-		if (v instanceof Button) {
-			currentButton = ((Button) v);
-			int id = currentButton.getId();
-
-			switch (id) {
-			case R.id.show:
-			case R.id.buttonShowOffers:
-				// Disable button
-				Log.d("TAG", id + "_____" + "单击了...");
-				currentButton.setEnabled(true);
-
-				// Show Offers Placement
-				callShowOffers();
-				break;
-
-			}
-		}
+//		if (v instanceof Button) {
+//			currentButton = ((Button) v);
+//			int id = currentButton.getId();
+//
+//			switch (id) {
+//			case R.id.show:
+//			case R.id.buttonShowOffers:
+//				// Disable button
+//				Log.d("TAG", id + "_____" + "单击了...");
+//				currentButton.setEnabled(true);
+//
+//				// Show Offers Placement
+//				//callTapjoyShowOffers();
+//				break;
+//
+//			}
+//		}
 
 		switch (v.getId()) {
 		case R.id.get_back:
-
 			finish();
 			break;
 
@@ -266,7 +281,7 @@ public class DownloadActivity extends BaseActivity implements
 		}
 	}
 
-	private void callShowOffers() {
+	private void callTapjoyShowOffers() {
 		// Construct TJPlacement to show Offers web view from where users can
 		// download the latest offers for virtual currency.
 		offerwallPlacement = Tapjoy.getPlacement("offerwall_unit",
@@ -281,13 +296,13 @@ public class DownloadActivity extends BaseActivity implements
 							Log.d("TAG", "No Offerwall content available");
 						}
 
-						setButtonEnabledInUI(currentButton, true);
+						//setButtonEnabledInUI(currentButton, true);
 					}
 
 					@Override
 					public void onRequestFailure(TJPlacement placement,
 							TJError error) {
-						setButtonEnabledInUI(currentButton, true);
+						//setButtonEnabledInUI(currentButton, true);
 						updateTextInUI("Offerwall error: " + error.message);
 					}
 
@@ -518,9 +533,26 @@ public class DownloadActivity extends BaseActivity implements
 	}
 
 	@Override
-	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		// TODO Auto-generated method stub
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+        switch (position) {
+            case 0:
+                // 积分墙通用版配置检查（使用“通过 Receiver 来获取积分订单”功能）：
+                boolean isSuccess = OffersManager.getInstance(this).checkOffersAdConfig(false);
+                // Show Adxmi offers Wall
+                OffersManager.getInstance(this).showOffersWall();
+                break;
+
+            case 1:
+                // Show Offers Placement
+                callTapjoyShowOffers();
+
+                break;
+
+            default:
+                break;
+        }
 	}
+
 
 }
