@@ -165,6 +165,23 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <!-- end share sdk -->
 
+        <!-- Supersonic -->
+        <activity
+            android:name="com.supersonicads.sdk.controller.ControllerActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true" />
+        <activity
+            android:name="com.supersonicads.sdk.controller.InterstitialActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name="com.supersonicads.sdk.controller.OpenUrlActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent" />
+
+
         <!-- Adxmi -->
         <activity
             android:name="net.adxmi.android.AdBrowser"

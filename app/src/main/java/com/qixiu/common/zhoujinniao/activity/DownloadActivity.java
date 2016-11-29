@@ -4,9 +4,14 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 
 import com.qixiu.common.zhoujinniao.data.bean.DownloadBean;
+import com.qixiu.common.zhoujinniao.main.Config;
 import com.qixiu.common.zhoujinniao.ui.adapter.DownloadAdapter;
 
 import com.qixiu.common.zhoujinniao.R;
+import com.supersonic.mediationsdk.logger.SupersonicError;
+import com.supersonic.mediationsdk.sdk.OfferwallListener;
+import com.supersonic.mediationsdk.sdk.Supersonic;
+import com.supersonic.mediationsdk.sdk.SupersonicFactory;
 import com.tapjoy.TJActionRequest;
 import com.tapjoy.TJConnectListener;
 import com.tapjoy.TJEarnedCurrencyListener;
@@ -40,7 +45,9 @@ import net.adxmi.android.os.OffersManager;
 public class DownloadActivity extends BaseActivity implements
 		View.OnClickListener, TJGetCurrencyBalanceListener,
 		TJPlacementListener, TJPlacementVideoListener, OnItemClickListener {
-	public static final String TAG = "TapjoyEasyApp";
+	public static final String TAG = "DownloadActivity";
+
+    private Supersonic mSupersonicInstance;
 
 	// UI elements
 	private String displayText = "";
@@ -77,8 +84,22 @@ public class DownloadActivity extends BaseActivity implements
 		Binddata();
 		connectToTapjoy();
 
+        initSupersonic();
 
 	}
+
+    private void initSupersonic() {
+        //Get the mediation publisher instance
+        mSupersonicInstance = SupersonicFactory.getInstance();
+
+        //Set the Offerwall Listener
+        mSupersonicInstance.setOfferwallListener(mOfferwallListener);
+
+        //Init Offerwall
+        mSupersonicInstance.initOfferwall(this, Config.SUPERSONIC_APP_ID, Secure.ANDROID_ID);
+
+
+    }
 
 	private void Binddata() {
 		// TODO Auto-generated method stub
@@ -91,6 +112,7 @@ public class DownloadActivity extends BaseActivity implements
 		// list.add(new DownloadBean());
 		list.add(new DownloadBean("Adxmi", "", R.drawable.icon_img1));
         list.add(new DownloadBean("Tapjoy", "", R.drawable.icon_img1));
+        list.add(new DownloadBean("Supersonic", "", R.drawable.icon_img1));
 
 		adapter = new DownloadAdapter();
 		adapter.setData(list);
@@ -228,6 +250,8 @@ public class DownloadActivity extends BaseActivity implements
 		super.onStart();
 		Tapjoy.onActivityStart(this);
         OffersManager.getInstance(this).onAppLaunch();
+        if (mSupersonicInstance != null)
+            mSupersonicInstance.onResume(this);
 	}
 
 	/**
@@ -238,13 +262,12 @@ public class DownloadActivity extends BaseActivity implements
 		super.onStop();
 		Tapjoy.onActivityStop(this);
         OffersManager.getInstance(this).onAppExit();
+        if (mSupersonicInstance != null)
+            mSupersonicInstance.onPause(this);
 	}
 
     @Override
     protected void onDestroy() {
-
-
-
         super.onDestroy();
 
     }
@@ -548,11 +571,90 @@ public class DownloadActivity extends BaseActivity implements
                 callTapjoyShowOffers();
 
                 break;
+            case 2:
+                //show offer wall when user clicks the offer wall button
+                mSupersonicInstance.showOfferwall();
+                break;
 
             default:
                 break;
         }
 	}
 
+    OfferwallListener mOfferwallListener = new OfferwallListener() {
 
+        /**
+         * Invoked when the Offerwall is prepared and ready to be shown to the user
+         */
+        @Override
+        public void onOfferwallInitSuccess() {
+
+        }
+
+        /**
+         * Invoked when the Offerwall does not load
+         */
+        @Override
+        public void onOfferwallInitFail(SupersonicError supersonicError) {
+
+        }
+
+        /**
+         * Invoked when the Offerwall successfully loads for the user, after calling the 'showOfferwall' method
+         */
+        @Override
+        public void onOfferwallOpened() {
+
+        }
+
+        /**
+         * Invoked when the method 'showOfferWall' is called and the OfferWall fails to load.  //@param supersonicError - A SupersonicError Object which represents the reason of 'showOfferwall' failure.
+         */
+        @Override
+        public void onOfferwallShowFail(SupersonicError supersonicError) {
+
+        }
+
+        /**
+         * Invoked each time the user completes an Offer.
+         * Award the user with the credit amount corresponding to the value of the ‘credits’
+         * parameter.
+         * @param credits - The number of credits the user has earned.
+         * @param totalCredits - The total number of credits ever earned by the user.
+         * @param totalCreditsFlag - In some cases, we won’t be able to provide the exact
+         * amount of credits since the last event (specifically if the user clears
+         * the app’s data). In this case the ‘credits’ will be equal to the ‘totalCredits’,
+         * and this flag will be ‘true’.
+         * @return boolean - true if you received the callback and rewarded the user,
+         * otherwise false.
+         */
+        @Override
+        public boolean onOfferwallAdCredited(int credits, int totalCredits, boolean totalCreditsFlag) {
+            return false;
+        }
+
+
+        /**
+         * Invoked when the method 'getOfferWallCredits' fails to retrieve
+         * the user's credit balance info.
+         * @param supersonicError - A SupersonicError object which represents the reason of 'getOffereallCredits' failure.
+         * If using client-side callbacks to reward users, it is mandatory to return true on this event
+         */
+        @Override
+        public void onGetOfferwallCreditsFail(SupersonicError supersonicError) {
+
+        }
+
+
+        /**
+         * Invoked when the user is about to return to the application after closing
+         * the Offerwall.
+         */
+        @Override
+        public void onOfferwallClosed() {
+
+        }
+
+
+    };
 }
