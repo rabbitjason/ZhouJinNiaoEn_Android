@@ -25,4 +25,6 @@ public class Config {
     public static final String ADXMI_APP_SECRET = "3a822cfa59281255";
 
     public static final String SUPERSONIC_APP_ID = "5a014405";
+
+    public static final String NATIVEX_APP_ID = "113871";
 }

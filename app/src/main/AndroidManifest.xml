@@ -181,6 +181,17 @@
             android:hardwareAccelerated="true"
             android:theme="@android:style/Theme.Translucent" />
 
+        <!-- Nativex -->
+        <activity
+            android:name="com.nativex.monetization.activities.InterstitialActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            />
+
+        <activity
+            android:name="com.nativex.videoplayer.VideoActivity"
+            android:configChanges="orientation|screenSize" />
 
         <!-- Adxmi -->
         <activity

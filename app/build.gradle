@@ -7,6 +7,7 @@ android {
         applicationId "com.qixiu.common.zhoujinniao"
         minSdkVersion 15
         targetSdkVersion 24
+        multiDexEnabled true
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -30,14 +31,6 @@ android {
 //Include Supersonic maven repositories
 repositories {
     maven {
-        url "https://dl.bintray.com/supersonic/android-sdk"
-    }
-
-    maven {
-        url  "http://dl.bintray.com/supersonic/android-adapters"
-    }
-
-    maven {
         url  "https://adcolony.bintray.com/AdColony"
     }
 
@@ -52,10 +45,9 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
+    compile 'com.android.support:multidex:1.0.1'
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
     compile 'com.loopj.android:android-async-http:1.4.9'
-    compile 'com.google.android.gms:play-services-base:10.0.0'
-    compile 'com.supersonic.sdk:mediationsdk:6.4.19@jar'
     compile 'com.adscendmedia.sdk:adscendmedia:2.1.16'
 }

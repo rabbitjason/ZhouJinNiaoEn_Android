@@ -10,6 +10,8 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.provider.Settings.Secure;
+import android.support.multidex.MultiDexApplication;
+
 import cn.sharesdk.framework.ShareSDK;
 
 import com.baidu.location.BDLocation;
@@ -35,7 +37,7 @@ import com.tencent.mm.sdk.openapi.WXAPIFactory;
 
 import net.adxmi.android.AdManager;
 
-public class App extends Application {
+public class App extends MultiDexApplication {
 	private static WeakReference<App> instance;
 	public static Activity mCurrentActivity;
 	public static IWXAPI wxApi;

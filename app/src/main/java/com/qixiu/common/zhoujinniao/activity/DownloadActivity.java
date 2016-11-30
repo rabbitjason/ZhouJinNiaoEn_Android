@@ -3,6 +3,15 @@ package com.qixiu.common.zhoujinniao.activity;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
+import com.nativex.monetization.MonetizationManager;
+import com.nativex.monetization.business.reward.Reward;
+import com.nativex.monetization.communication.RedeemRewardData;
+import com.nativex.monetization.enums.AdEvent;
+import com.nativex.monetization.enums.NativeXAdPlacement;
+import com.nativex.monetization.listeners.OnAdEventV2;
+import com.nativex.monetization.listeners.RewardListener;
+import com.nativex.monetization.listeners.SessionListener;
+import com.nativex.monetization.mraid.AdInfo;
 import com.qixiu.common.zhoujinniao.data.bean.DownloadBean;
 import com.qixiu.common.zhoujinniao.main.Config;
 import com.qixiu.common.zhoujinniao.ui.adapter.DownloadAdapter;
@@ -75,6 +84,8 @@ public class DownloadActivity extends BaseActivity implements
 
 	TextView title;
 
+    private Boolean _canShowAds = false;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -85,6 +96,8 @@ public class DownloadActivity extends BaseActivity implements
 		connectToTapjoy();
 
         initSupersonic();
+
+        initNativeX();
 
 	}
 
@@ -98,21 +111,41 @@ public class DownloadActivity extends BaseActivity implements
         //Init Offerwall
         mSupersonicInstance.initOfferwall(this, Config.SUPERSONIC_APP_ID, Secure.ANDROID_ID);
 
+    }
 
+    private void initNativeX() {
+        // create Session
+        MonetizationManager.createSession(getApplicationContext(), Config.NATIVEX_APP_ID,
+                Secure.ANDROID_ID, sessionListener);
+
+        // setting the currency listener
+        // It is recommended that you implement this even if you do not plan to use
+        // rewarded ads. You can then simply enable rewarded ads from Self Service without
+        // any code changes or a new release.
+        MonetizationManager.setRewardListener(new RewardListener() {
+            @Override
+            public void onRedeem(RedeemRewardData redeemRewardData) {
+                //Take possession of the balances returned here.
+                int totalRewardAmount = 0;
+                for (Reward reward : redeemRewardData.getRewards()) {
+                    Log.d("SampleApp", "Reward: rewardName:" + reward.getRewardName()
+                            + " rewardId:" + reward.getRewardId()
+                            + " amount:" + Double.toString(reward.getAmount()));
+                    // add the reward amount to the total
+                    totalRewardAmount += reward.getAmount();
+                }
+                redeemRewardData.showAlert(DownloadActivity.this);
+            }
+        });
     }
 
 	private void Binddata() {
 		// TODO Auto-generated method stub
 
-		// list.add(new DownloadBean());
-		// list.add(new DownloadBean());
-		// list.add(new DownloadBean());
-		// list.add(new DownloadBean());
-		// list.add(new DownloadBean());
-		// list.add(new DownloadBean());
 		list.add(new DownloadBean("Adxmi", "", R.drawable.icon_img1));
         list.add(new DownloadBean("Tapjoy", "", R.drawable.icon_img1));
         list.add(new DownloadBean("Supersonic", "", R.drawable.icon_img1));
+        list.add(new DownloadBean("NativeX", "", R.drawable.icon_img1));
 
 		adapter = new DownloadAdapter();
 		adapter.setData(list);
@@ -252,9 +285,16 @@ public class DownloadActivity extends BaseActivity implements
         OffersManager.getInstance(this).onAppLaunch();
         if (mSupersonicInstance != null)
             mSupersonicInstance.onResume(this);
+
 	}
 
-	/**
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    /**
 	 * Notify Tapjoy the end of this activity for session tracking
 	 */
 	@Override
@@ -576,10 +616,96 @@ public class DownloadActivity extends BaseActivity implements
                 mSupersonicInstance.showOfferwall();
                 break;
 
+            case 3:
+            {
+                if(_canShowAds == true)
+                    //shows an ad that is already fetched and ready to show instantly
+                    //NOTE: if the ad has not been fetched yet this method will not do anything
+                    MonetizationManager.showReadyAd(DownloadActivity.this, NativeXAdPlacement.Main_Menu_Screen, onAdEventListener);
+                else
+                    android.util.Log.d("ShowAd","Can't show ads but still button clicked");
+
+            }
+                break;
             default:
                 break;
         }
 	}
+//////////////////  NATIVEX  BEGIN/////////////////////////////////////////////////////////
+    private SessionListener sessionListener = new SessionListener() {
+        @Override
+        public void createSessionCompleted(boolean success, boolean isOfferWallEnabled, String sessionId) {
+            if (success) {
+                // a session with our servers was established successfully.
+                // the app is now ready to show ads.
+                System.out.println("Wahoo! Now I'm ready to show an ad.");
+                MonetizationManager.fetchAd(DownloadActivity.this, NativeXAdPlacement.Main_Menu_Screen, onAdEventListener);
+                _canShowAds = true;
+            } else {
+                // establishing a session with our servers failed;
+                // the app will be unable to show ads until a session is established
+                System.out.println("Oh no! Something isn't set up correctly - re-read the documentation or ask customer support for some help - https://selfservice.nativex.com/Help");
+                _canShowAds = false;
+            }
+        }
+    };
+
+    private OnAdEventV2 onAdEventListener = new OnAdEventV2() {
+        @Override
+        public void onEvent(AdEvent event, AdInfo adInfo, String message) {
+            System.out.println("Placement: " + adInfo.getPlacement());
+            switch (event) {
+                case ALREADY_FETCHED:
+                    // fetchAd() is called with an Ad Name and there is already a fetched ad with the same name ready to be shown.
+                    break;
+                case ALREADY_SHOWN:
+                    // showAd() is called with an Ad Name and there is an ad already being shown with the same name at this moment.
+                    break;
+                case BEFORE_DISPLAY:
+                    // Just before the Ad is displayed on the screen.
+                    break;
+                case DISMISSED:
+                    // The ad is dismissed by the user or by the application.
+                    break;
+                case DISPLAYED:
+                    // The ad is shown on the screen. For fetched ads this event will fire when the showAd() method is called.
+                    break;
+                case DOWNLOADING:
+                    // fetchAd() is called with an Ad Name and there is an ad already being fetched with the same name at this moment.
+                    break;
+                case ERROR:
+                    // An error has occurred and the ad is going to be closed.
+                    // More information about the error is passed in the "message" parameter.
+                    break;
+                case EXPIRED:
+                    // A fetched ad expires. All fetched ads will expire after a certain time period if not shown.
+                    break;
+                case FETCHED:
+                    // The ad is ready to be shown. For fetched ads this method means that the ad is fetched successfully.
+                    // You may want to initially put the showReadyAd() call here when you're doing your initial testing,
+                    // but for production you should move it to a more appropriate place, as described in the Show an Ad section.
+                    break;
+                case NO_AD:
+                    // The device contacts the server, but there is no ad ready to be shown at this time.
+                    break;
+                case USER_NAVIGATES_OUT_OF_APP:
+                    // The user clicks on a link or a button in the ad and is going to navigate out of the app
+                    // to the Google Play or a browser applications.
+                    break;
+                case IMPRESSION_CONFIRMED:
+                    // ad has its impression event fired
+                    break;
+                case AD_CONVERTED:
+                    // rewarded video ad has converted, and rewards will be given
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+//////////////////  NATIVEX  END/////////////////////////////////////////////////////////////
+
+
 
     OfferwallListener mOfferwallListener = new OfferwallListener() {
 
