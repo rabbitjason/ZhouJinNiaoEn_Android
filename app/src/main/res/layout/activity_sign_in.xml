@@ -80,7 +80,7 @@
                 android:background="@color/white"
                 android:orientation="horizontal" >
 
-                <com.qixiu.common.zhoujinniao.lib.circleview.MyGridView
+                <com.qixiu.common.zhuojinniao.lib.circleview.MyGridView
                     android:id="@+id/gridview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

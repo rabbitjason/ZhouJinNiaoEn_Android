@@ -9,11 +9,11 @@
         android:layout_height="match_parent"
         android:background="#ffffff" >
 
-        <com.qixiu.common.zhoujinniao.lib.circleview.BaseViewPager
+        <com.qixiu.common.zhuojinniao.lib.circleview.BaseViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
-        </com.qixiu.common.zhoujinniao.lib.circleview.BaseViewPager>
+        </com.qixiu.common.zhuojinniao.lib.circleview.BaseViewPager>
 
         <LinearLayout
             android:id="@+id/layout_viewpager_indicator"

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/tou" 
+    android:id="@+id/qq">
+
+    <RelativeLayout
+        android:id="@+id/rlt"
+        android:layout_width="200dp"
+        android:layout_height="400dp"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/ll"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/rlt_icon_shape"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="70dp"
+                android:gravity="center"
+                android:text="请填写邀请码获取奖励"
+                android:textColor="#3D3D3D"
+                android:textSize="14dp" />
+
+            <EditText
+                android:id="@+id/Invitation_code"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/icon_code_shape"
+                android:digits="1234567890qwertyuioplkjhgfdsazxcvbnm"
+                android:gravity="center"
+                android:hint="邀请码"
+                android:maxLength="5"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:textColor="#3D3D3D"
+                android:textColorHint="@color/color_hint"
+                android:textSize="14dp" />
+
+            <TextView
+                android:id="@+id/submit"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Invitation_code"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/icon_submit_shape"
+                android:gravity="center"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="提   交"
+                android:textColor="@color/white"
+                android:textSize="14dp" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/chest"
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            android:src="@drawable/icon_chest" />
+        <ImageView
+            android:id="@+id/delete"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_alignRight="@id/ll"
+            android:src="@drawable/icon_delete" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/delete"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_toRightOf="@+id/chest"
+            android:paddingRight="50dp"
+            android:src="@drawable/icon_delete" />
+
+        <ImageView
+            android:id="@+id/chest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/icon_chest" />
+    </RelativeLayout>
+
+</RelativeLayout>
