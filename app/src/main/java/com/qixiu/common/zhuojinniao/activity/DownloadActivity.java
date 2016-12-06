@@ -293,11 +293,12 @@ public class DownloadActivity extends BaseActivity implements
 	 */
 	@Override
 	protected void onStop() {
-		super.onStop();
 		Tapjoy.onActivityStop(this);
-        OffersManager.getInstance(this).onAppExit();
-        if (mSupersonicInstance != null)
-            mSupersonicInstance.onPause(this);
+		OffersManager.getInstance(this).onAppExit();
+		if (mSupersonicInstance != null)
+			mSupersonicInstance.onPause(this);
+
+		super.onStop();
 	}
 
     @Override
