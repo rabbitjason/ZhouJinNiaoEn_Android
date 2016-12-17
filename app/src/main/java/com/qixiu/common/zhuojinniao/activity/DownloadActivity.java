@@ -91,7 +91,7 @@ public class DownloadActivity extends BaseActivity implements
 
         connectToTapjoy();
         initSupersonic();
-        initNativeX();
+
 	}
 
     private void initSupersonic() {
@@ -104,9 +104,6 @@ public class DownloadActivity extends BaseActivity implements
         //Init Offerwall
         mSupersonicInstance.initOfferwall(this, Config.SUPERSONIC_APP_ID, Secure.getString(this.getContentResolver(),
 				Secure.ANDROID_ID));
-
-
-
     }
 
     private void initNativeX() {
@@ -285,7 +282,7 @@ public class DownloadActivity extends BaseActivity implements
     @Override
     protected void onResume() {
         super.onResume();
-
+		initNativeX();
     }
 
     /**
@@ -599,7 +596,7 @@ public class DownloadActivity extends BaseActivity implements
                 if(_canShowAds == true)
                     //shows an ad that is already fetched and ready to show instantly
                     //NOTE: if the ad has not been fetched yet this method will not do anything
-                    MonetizationManager.showReadyAd(DownloadActivity.this, NativeXAdPlacement.Main_Menu_Screen, onAdEventListener);
+                    MonetizationManager.showReadyAd(DownloadActivity.this, NativeXAdPlacement.Store_Open, onAdEventListener);
                 else
                     android.util.Log.d("ShowAd","Can't show ads but still button clicked");
 
@@ -624,7 +621,7 @@ public class DownloadActivity extends BaseActivity implements
                 // a session with our servers was established successfully.
                 // the app is now ready to show ads.
                 System.out.println("Wahoo! Now I'm ready to show an ad.");
-                MonetizationManager.fetchAd(DownloadActivity.this, NativeXAdPlacement.Main_Menu_Screen, onAdEventListener);
+                MonetizationManager.fetchAd(DownloadActivity.this, NativeXAdPlacement.Store_Open, onAdEventListener);
                 _canShowAds = true;
             } else {
                 // establishing a session with our servers failed;
