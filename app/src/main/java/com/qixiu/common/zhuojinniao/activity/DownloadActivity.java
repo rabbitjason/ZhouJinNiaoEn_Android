@@ -108,6 +108,7 @@ public class DownloadActivity extends BaseActivity implements
 
     private void initNativeX() {
         // create Session
+
         MonetizationManager.createSession(getApplicationContext(), Config.NATIVEX_APP_ID,
 				Secure.getString(this.getContentResolver(), Secure.ANDROID_ID),
 				sessionListener);
@@ -596,7 +597,9 @@ public class DownloadActivity extends BaseActivity implements
                 if(_canShowAds == true)
                     //shows an ad that is already fetched and ready to show instantly
                     //NOTE: if the ad has not been fetched yet this method will not do anything
-                    MonetizationManager.showReadyAd(DownloadActivity.this, NativeXAdPlacement.Store_Open, onAdEventListener);
+					if (MonetizationManager.isAdReady(NativeXAdPlacement.Store_Open)) {
+						MonetizationManager.showReadyAd(DownloadActivity.this, NativeXAdPlacement.Store_Open, onAdEventListener);
+					}
                 else
                     android.util.Log.d("ShowAd","Can't show ads but still button clicked");
 

@@ -32,7 +32,7 @@ public class UserMananger {
 				+ "App/User/signInByDevice?device="
 				+ Secure.getString(context.getContentResolver(),
 						Secure.ANDROID_ID) + "&device_type=" + 2;
-
+		Log.d("login", url);
 		BaseHttpManager.get(context, url, null, LoginResponse.class,
 				new BaseCallListener() {
 
