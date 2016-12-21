@@ -335,23 +335,19 @@ public class DownloadActivity extends BaseActivity implements
 							updateTextInUI("No Offerwall content available");
 							Log.d("TAG", "No Offerwall content available");
 						}
-
-						//setButtonEnabledInUI(currentButton, true);
 					}
 
 					@Override
 					public void onRequestFailure(TJPlacement placement,
 							TJError error) {
-						//setButtonEnabledInUI(currentButton, true);
-						//updateTextInUI("Offerwall error: " + error.message);
+						updateTextInUI("Offerwall error: " + error.message);
 					}
 
 					@Override
 					public void onContentReady(TJPlacement placement) {
 						TapjoyLog.i(TAG, "onContentReady for placement "
 								+ placement.getName());
-
-						//updateTextInUI("Offerwall request success");
+						updateTextInUI("Offerwall request success");
 						placement.showContent();
 					}
 
@@ -467,7 +463,6 @@ public class DownloadActivity extends BaseActivity implements
 				Tapjoy.getCurrencyBalance(DownloadActivity.this);
 			}
 		});
-
 		directPlayPlacement.requestContent();
 	}
 
@@ -728,7 +723,6 @@ public class DownloadActivity extends BaseActivity implements
         }
     };
 //////////////////  NATIVEX  END/////////////////////////////////////////////////////////////
-
 
 
     OfferwallListener mOfferwallListener = new OfferwallListener() {
