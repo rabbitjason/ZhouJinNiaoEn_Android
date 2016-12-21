@@ -58,10 +58,9 @@ public class App extends MultiDexApplication {
 
 		//Set Admxi config
         //AdManager.getInstance(getApplicationContext()).setEnableDebugLog(false);
-		OffersManager.getInstance(this).setCustomUserId(
-				Uri.encode(
-						Settings.Secure.getString(this.getContentResolver(), "utf-8"),
+		OffersManager.getInstance(this).setCustomUserId(Settings.Secure.getString(this.getContentResolver(),
 						Settings.Secure.ANDROID_ID));
+
 		//有米Android SDK v4.10之后的sdk还需要配置下面代码，以告诉sdk使用了服务器回调
 		OffersManager.getInstance(this).setUsingServerCallBack(true);
 		AdManager.getInstance(getApplicationContext()).init(Config.ADXMI_APP_ID, Config.ADXMI_APP_SECRET);

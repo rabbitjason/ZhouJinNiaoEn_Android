@@ -2,8 +2,12 @@ package com.qixiu.common.zhuojinniao.activity;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Map;
 
+import com.adscendmedia.sdk.ui.AdscendMediaWrapper;
 import com.adscendmedia.sdk.ui.OffersActivity;
+import com.adscendmedia.sdk.util.CompletedOfferRequestListener;
 import com.baidu.mapapi.map.Text;
 import com.nativex.monetization.MonetizationManager;
 import com.nativex.monetization.business.reward.Reward;
@@ -62,10 +66,6 @@ public class DownloadActivity extends BaseActivity implements
 
 	// UI elements
 	private String displayText = "";
-	private Button getCurrencyBalanceButton;
-	private Button getDirectPlayVideoAd;
-
-	private TextView outputTextView;
 
 	// Tapjoy Placements
 	private TJPlacement directPlayPlacement;
@@ -137,8 +137,8 @@ public class DownloadActivity extends BaseActivity implements
 	private void Binddata() {
 		// TODO Auto-generated method stub
 
-		list.add(new DownloadBean("Adxmi", "", R.drawable.icon_img1));
         list.add(new DownloadBean("Tapjoy", "", R.drawable.icon_img1));
+		list.add(new DownloadBean("Adxmi", "", R.drawable.icon_img1));
         list.add(new DownloadBean("Supersonic", "", R.drawable.icon_img1));
         list.add(new DownloadBean("NativeX", "", R.drawable.icon_img1));
         list.add(new DownloadBean("Adscend", "", R.drawable.icon_img1));
@@ -175,12 +175,12 @@ public class DownloadActivity extends BaseActivity implements
 		// Connect with the Tapjoy server. Call this when the application first
 		// starts. 5fFevb2RTGy0v8cKd2TfOAECQDHsK119nAxRBssIvqfUZuDFSC3F_pSN_fiq
 		// REPLACE THE SDK KEY WITH YOUR TAPJOY SDK Key.
-		String tapjoySDKKey = "u6SfEbh_TA-WMiGqgQ3W8QECyiQIURFEeKm0zbOggubusy-o5ZfXp33sTXaD";
+		String tapjoySDKKey = "5fFevb2RTGy0v8cKd2TfOAECQDHsK119nAxRBssIvqfUZuDFSC3F_pSN_fiq";
 
-		// Tapjoy.setGcmSender(Secure.getString(this.getContentResolver(),
-		// Secure.ANDROID_ID));
+//		 Tapjoy.setGcmSender(Secure.getString(this.getContentResolver(),
+//		 Secure.ANDROID_ID));
 
-		Tapjoy.setGcmSender("34027022155");
+		//Tapjoy.setGcmSender("34027022155");
 		// 设置用户ID
 		Tapjoy.setUserID(Secure.getString(this.getContentResolver(),
 				Secure.ANDROID_ID));
@@ -190,7 +190,7 @@ public class DownloadActivity extends BaseActivity implements
 				new TJConnectListener() {
 					@Override
 					public void onConnectSuccess() {
-						DownloadActivity.this.onConnectSuccess();
+						//DownloadActivity.this.onConnectSuccess();
 					}
 
 					@Override
@@ -278,6 +278,7 @@ public class DownloadActivity extends BaseActivity implements
         if (mSupersonicInstance != null)
             mSupersonicInstance.onResume(this);
 
+        getCompletedTransactions_ADSCEND();
 	}
 
     @Override
@@ -323,7 +324,7 @@ public class DownloadActivity extends BaseActivity implements
 	private void callTapjoyShowOffers() {
 		// Construct TJPlacement to show Offers web view from where users can
 		// download the latest offers for virtual currency.
-		offerwallPlacement = Tapjoy.getPlacement("offerwall_unit",
+		offerwallPlacement = Tapjoy.getPlacement("adwall1",
 				new TJPlacementListener() {
 					@Override
 					public void onRequestSuccess(TJPlacement placement) {
@@ -342,7 +343,7 @@ public class DownloadActivity extends BaseActivity implements
 					public void onRequestFailure(TJPlacement placement,
 							TJError error) {
 						//setButtonEnabledInUI(currentButton, true);
-						updateTextInUI("Offerwall error: " + error.message);
+						//updateTextInUI("Offerwall error: " + error.message);
 					}
 
 					@Override
@@ -350,7 +351,7 @@ public class DownloadActivity extends BaseActivity implements
 						TapjoyLog.i(TAG, "onContentReady for placement "
 								+ placement.getName());
 
-						updateTextInUI("Offerwall request success");
+						//updateTextInUI("Offerwall request success");
 						placement.showContent();
 					}
 
@@ -396,13 +397,11 @@ public class DownloadActivity extends BaseActivity implements
 		} else {
 			updateTextInUI(currencyName + ": " + balance);
 		}
-		setButtonEnabledInUI(getCurrencyBalanceButton, true);
 	}
 
 	@Override
 	public void onGetCurrencyBalanceResponseFailure(String error) {
 		updateTextInUI("getCurrencyBalance error: " + error);
-		setButtonEnabledInUI(getCurrencyBalanceButton, true);
 	}
 
 	/*
@@ -434,8 +433,6 @@ public class DownloadActivity extends BaseActivity implements
 	@Override
 	public void onContentDismiss(TJPlacement placement) {
 		Log.i(TAG, "Tapjoy direct play content did disappear");
-
-		setButtonEnabledInUI(getDirectPlayVideoAd, true);
 
 		// Best Practice: We recommend calling getCurrencyBalance as often as
 		// possible so the user's balance is always up-to-date.
@@ -516,14 +513,14 @@ public class DownloadActivity extends BaseActivity implements
 	private void updateTextInUI(final String text) {
 		displayText = text;
 
-		runOnUiThread(new Runnable() {
-			@Override
-			public void run() {
-				if (outputTextView != null) {
-					outputTextView.setText(text);
-				}
-			}
-		});
+//		runOnUiThread(new Runnable() {
+//			@Override
+//			public void run() {
+//				if (outputTextView != null) {
+//					outputTextView.setText(text);
+//				}
+//			}
+//		});
 	}
 
 	/**
@@ -575,17 +572,17 @@ public class DownloadActivity extends BaseActivity implements
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
         switch (position) {
+
             case 0:
+                // Show Offers Placement
+                callTapjoyShowOffers();
+                break;
+
+            case 1:
                 // 积分墙通用版配置检查（使用“通过 Receiver 来获取积分订单”功能）：
                 boolean isSuccess = OffersManager.getInstance(this).checkOffersAdConfig(false);
                 // Show Adxmi offers Wall
                 OffersManager.getInstance(this).showOffersWall();
-                break;
-
-            case 1:
-                // Show Offers Placement
-                callTapjoyShowOffers();
-
                 break;
             case 2:
                 //show offer wall when user clicks the offer wall button
@@ -616,6 +613,48 @@ public class DownloadActivity extends BaseActivity implements
                 break;
         }
 	}
+
+//////////////// ADSCEND  BEGIN  //////////////////////////////////////////////////////
+    public void getCompletedTransactions_ADSCEND() {
+
+        CompletedOfferRequestListener listener = new CompletedOfferRequestListener() {
+
+            @Override
+            public void onSuccess(ArrayList<Map<String, String>> completedOffers) {
+
+                if (completedOffers != null) {
+                    for (Map<String, String> offer : completedOffers) {
+                        Iterator it = offer.entrySet().iterator();
+                        StringBuilder completedTransactionBuilder = new StringBuilder();
+
+                        while (it.hasNext()) {
+                            Map.Entry pair = (Map.Entry) it.next();
+                            completedTransactionBuilder.append(pair.getValue()).append(" ");
+
+                            it.remove();
+                        }
+                        Toast.makeText(DownloadActivity.this,
+                                "Completed offer with currency: " + completedTransactionBuilder.toString(),
+                                Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Object message) {
+				String msg = message.toString();
+				int i = 0;
+            }
+        };
+
+        AdscendMediaWrapper.getCompletedTransactions(getApplicationContext(), Config.ADSCEND_PUB_ID,
+                Config.ADSCEND_OFFERWALL_ID, Secure.getString(this.getContentResolver(),
+                Secure.ANDROID_ID), listener); // Call to getCompletedOffers api from sdk
+    }
+/////////////// ADSCEND  BEGIN  //////////////////////////////////////////////////////
+
+
+
 //////////////////  NATIVEX  BEGIN/////////////////////////////////////////////////////////
     private SessionListener sessionListener = new SessionListener() {
         @Override
