@@ -2,6 +2,7 @@ package com.qixiu.common.zhuojinniao.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -15,6 +16,7 @@ import com.qixiu.common.zhuojinniao.data.response.InvitationResponse;
 import com.qixiu.common.zhuojinniao.data.responsedata.UserData;
 import com.qixiu.common.zhuojinniao.fragment.MainFragment;
 import com.qixiu.common.zhuojinniao.fragment.MineFragment;
+import com.qixiu.common.zhuojinniao.main.Config;
 import com.qixiu.common.zhuojinniao.manager.BaseHttpManager;
 import com.qixiu.common.zhuojinniao.manager.PreferenceManager;
 import com.qixiu.common.zhuojinniao.manager.UserMananger;
@@ -22,6 +24,7 @@ import com.qixiu.common.zhuojinniao.ui.dialog.MiddleDialog;
 import com.qixiu.common.zhuojinniao.util.ScreenUtils;
 
 import com.qixiu.common.zhuojinniao.R;
+import com.trialpay.android.Trialpay;
 //import com.tapjoy.easyapp.TapjoyEasyApp;
 
 /**
@@ -58,8 +61,13 @@ public class MainActivity extends BaseActivity {
 		initView();
 		initFragment();
 		showContent();
+		getData();
 
-        getData();
+		//TrialPay init
+		Trialpay.initApp(this, Config.TRIALPAY_APP_ID, Settings.Secure.getString(this.getContentResolver(),
+				Settings.Secure.ANDROID_ID));
+
+
 	}
 
 	private void initView() {

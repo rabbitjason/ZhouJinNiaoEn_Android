@@ -38,6 +38,10 @@ import com.tapjoy.TJPlacementVideoListener;
 import com.tapjoy.Tapjoy;
 import com.tapjoy.TapjoyConnectFlag;
 import com.tapjoy.TapjoyLog;
+import com.trialpay.android.TPEventStatus;
+import com.trialpay.android.Trialpay;
+import com.trialpay.android.TrialpayEvent;
+import com.trialpay.android.TrialpayEventStatusChangeListener;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -81,6 +85,10 @@ public class DownloadActivity extends BaseActivity implements
 	TextView title;
     private Boolean _canShowAds = false;
 
+	// Trialpay Events
+	private TrialpayEvent tpButtonOfferWall;
+	private Boolean isShowTrialPayOfferWall = false;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -92,6 +100,24 @@ public class DownloadActivity extends BaseActivity implements
         connectToTapjoy();
         initSupersonic();
 
+		initTrialPay();
+	}
+
+	private void initTrialPay() {
+		// Create Trialpay event
+		tpButtonOfferWall = Trialpay.createEvent("zhuojinniaoWall", null);
+		// Status change listener is optional but can be used to control UI to reflect event availability
+		tpButtonOfferWall.setOnStatusChange(new TrialpayEventStatusChangeListener() {
+			@Override
+			public void statusChanged(TrialpayEvent event, TPEventStatus status) {
+				Log.d("initTrialPay", "OfferWall " + status.toString());
+				if (TPEventStatus.HAS_OFFERS.equals(status)) {
+					isShowTrialPayOfferWall = true;
+				} else {
+					isShowTrialPayOfferWall = false;
+				}
+			}
+		});
 	}
 
     private void initSupersonic() {
@@ -142,6 +168,7 @@ public class DownloadActivity extends BaseActivity implements
         list.add(new DownloadBean("Supersonic", "", R.drawable.icon_img1));
         list.add(new DownloadBean("NativeX", "", R.drawable.icon_img1));
         list.add(new DownloadBean("Adscend", "", R.drawable.icon_img1));
+		list.add(new DownloadBean("TrialPay", "", R.drawable.icon_img1));
 
 		adapter = new DownloadAdapter();
 		adapter.setData(list);
@@ -604,6 +631,13 @@ public class DownloadActivity extends BaseActivity implements
                                 Secure.ANDROID_ID));
                 startActivity(intent);
                 break;
+
+			case 5:
+				if (isShowTrialPayOfferWall) {
+					tpButtonOfferWall.fire();
+				}
+
+				break;
             default:
                 break;
         }

@@ -25,6 +25,7 @@ import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.tapjoy.TJPlacement;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
+import com.trialpay.android.Trialpay;
 
 import net.adxmi.android.AdManager;
 import net.adxmi.android.os.OffersManager;
@@ -60,10 +61,11 @@ public class App extends MultiDexApplication {
         //AdManager.getInstance(getApplicationContext()).setEnableDebugLog(false);
 		OffersManager.getInstance(this).setCustomUserId(Settings.Secure.getString(this.getContentResolver(),
 						Settings.Secure.ANDROID_ID));
-
 		//有米Android SDK v4.10之后的sdk还需要配置下面代码，以告诉sdk使用了服务器回调
 		OffersManager.getInstance(this).setUsingServerCallBack(true);
 		AdManager.getInstance(getApplicationContext()).init(Config.ADXMI_APP_ID, Config.ADXMI_APP_SECRET);
+
+
 
 //		File cacheDir = StorageUtils.getOwnCacheDirectory(
 //				getApplicationContext(), "imageloader/Cache");

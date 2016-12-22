@@ -30,4 +30,6 @@ public class Config {
     public static final String ADSCEND_PUB_ID = "108635";
     public static final String ADSCEND_OFFERWALL_ID = "8115";
 
+    public static final String TRIALPAY_APP_ID = "7c1c37e7b8f184cfd650a8ebc1e12748";
+
 }
