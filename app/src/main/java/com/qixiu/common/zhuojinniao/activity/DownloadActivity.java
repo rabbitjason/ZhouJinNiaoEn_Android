@@ -204,8 +204,8 @@ public class DownloadActivity extends BaseActivity implements
 		// REPLACE THE SDK KEY WITH YOUR TAPJOY SDK Key.
 		String tapjoySDKKey = "5fFevb2RTGy0v8cKd2TfOAECQDHsK119nAxRBssIvqfUZuDFSC3F_pSN_fiq";
 
-//		 Tapjoy.setGcmSender(Secure.getString(this.getContentResolver(),
-//		 Secure.ANDROID_ID));
+		 Tapjoy.setGcmSender(Secure.getString(this.getContentResolver(),
+		 Secure.ANDROID_ID));
 
 		//Tapjoy.setGcmSender("34027022155");
 		// 设置用户ID
